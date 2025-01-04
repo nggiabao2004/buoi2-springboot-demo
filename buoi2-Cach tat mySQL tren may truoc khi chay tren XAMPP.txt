@@ -1,0 +1,9 @@
+---Cách vô hiệu hóa mySQL trên thiết bị khi chạy xung đột với XAMPP Control Panel
+b1: Nhấn tổ hợp phím (Windows logo) + R
+b2: Gõ "services.msc" và nhấn Enter
+b3: Tìm "MySQL" và nhấn chuột phải, chọn stop và xong
+---Cách chạy Database trên XAMPP Control Panel
+b1: mở ứng dụng XAMPP Control Panel trên Windows
+b2: bật Apache và MySQL (nếu lỗi hãy tìm ở Logs và tra thử)
+b3: mở trình duyệt và gõ "localhost" trên thanh địa chỉ
+b4: nhấn "phpMyAdmin" là vào database
