@@ -3,6 +3,7 @@ package com.gdu_springboot.springboot_demo.dao;
 
 import com.gdu_springboot.springboot_demo.entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
@@ -43,20 +44,23 @@ public class StudentDAOImp implements StudentDAO {
 
     @Override
     public List<Student> findAll() {
-
-        return List.of();
+        TypedQuery<Student> query = em.createQuery("select s from Student s", Student.class);
+        return query.getResultList();
     }
 
     @Override
     public List<Student> findByName(String name) {
-
-        return List.of();
+        TypedQuery<Student> query= em.createQuery("select s from Student s where s.first_name = :theName", Student.class);
+        query.setParameter("theName", name);
+        return query.getResultList();
     }
 
     @Override
+    @Transactional
     public int deleteAll() {
-
-        return 0;
+        //int numRows= em.createQuery("delete from Student", Student.class).getResultList().size();
+        int numRows= em.createQuery("delete from Student").executeUpdate();
+        return numRows;
     }
 
 }
